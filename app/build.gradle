@@ -1,0 +1,24 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'app.couplecam.camera'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'app.couplecam.camera'
+        minSdk 29
+        targetSdk 35
+        versionCode 24
+        versionName '2.3'
+    }
+    sourceSets.main.assets.srcDirs = [rootProject.file('web')]
+    packaging { jniLibs { useLegacyPackaging true } }
+    if (rootProject.file('.local-signing/couplecam-dev.p12').exists()) {
+        signingConfigs.debug.storeFile = rootProject.file('.local-signing/couplecam-dev.p12')
+        signingConfigs.debug.storePassword = 'android'
+        signingConfigs.debug.keyAlias = 'couplecam'
+        signingConfigs.debug.keyPassword = 'android'
+        signingConfigs.debug.storeType = 'PKCS12'
+    }
+}
+dependencies {
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.23.2'
+}

@@ -1,0 +1,14 @@
+CoupleCAM 2.0 on-device composition advisor
+
+SmolVLM-256M-Instruct, Hugging Face Smol Models Research, Apache License 2.0.
+https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct
+Input checkpoints in the publisher's onnx directory: vision_encoder_q4.onnx,
+decoder_model_merged_q4.onnx and embed_tokens_int8.onnx.
+CoupleCAM specializes the vision graph for one letterboxed image and the
+language decoder for one fixed image question. It folds the prompt embeddings
+and empty initial cache into the graph. The language head evaluates candidate
+first-word tokens and pools them into scene categories, including an
+out-of-scope category. No retraining. See model-LICENSE.txt.
+
+Microsoft ONNX Runtime Android 1.23.2. See ort-license.txt and ort-notices.txt.
+https://central.sonatype.com/artifact/com.microsoft.onnxruntime/onnxruntime-android/1.23.2

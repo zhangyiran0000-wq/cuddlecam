@@ -1,0 +1,8 @@
+NIMA aesthetic MobileNet weights from idealo/image-quality-assessment (Apache-2.0).
+LiteRT conversion by litert-community/NIMA-LiteRT, under Apache-2.0.
+https://github.com/idealo/image-quality-assessment
+https://huggingface.co/litert-community/NIMA-LiteRT
+Original file: nima_aesthetic_fp16.tflite
+Original SHA-256: a5051a0fcced735682735e3e0fd58ee54c83ed664282a003f52235b3dbcb9320
+CoupleCAM adds MediaPipe input normalization and output metadata. Model weight
+buffers are unchanged. See LICENSE.txt in this directory for the Apache license.

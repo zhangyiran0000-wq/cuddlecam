@@ -1,0 +1,14 @@
+{
+  "name": "cuddlepose-camera",
+  "version": "2.3.0",
+  "private": true,
+  "description": "贴贴姿势相机 · CuddlePose Camera",
+  "scripts": {
+    "test": "node tests/behavior.mjs && node tests/detection-behavior.mjs",
+    "test:ui": "node tests/ui.cjs",
+    "test:features": "node tests/features.cjs",
+    "test:detector": "node tests/detection.cjs",
+    "test:live-detector": "node tests/detection.cjs live tests/live-detector-probe.mjs"
+  },
+  "devDependencies": {"playwright": "1.62.1"}
+}

@@ -1,0 +1,29 @@
+CoupleCAM offline comic editor
+
+Animation portrait: Face Portrait v2, additional portrait weights by Bryan Lee
+https://github.com/bryandlee/animegan2-pytorch
+ONNX conversion by Kazuhito Takahashi, face_paint_512_v2_0.onnx
+https://github.com/Kazuhito00/AnimeGANv2-ONNX-Sample
+Renamed to face-portrait.onnx. Weights unmodified.
+See portrait-LICENSE.txt and conversion-LICENSE.txt.
+
+Storybook: DCT-Net by Alibaba, Inc. and its affiliates.
+Storybook preset: iic/cv_unet_person-image-cartoon-sd-design_compound-models
+https://www.modelscope.cn/models/iic/cv_unet_person-image-cartoon-sd-design_compound-models
+Published cartoon_h.pb SHA256 a9f0ebcdce3152429b1169d3c5501ffd8b3ab7614622a5f420620056fb50f1cf
+The storybook model card specifies Apache License 2.0. See dct-LICENSE.txt.
+CoupleCAM converted the frozen TensorFlow graph to portable ONNX opset 16,
+with normalized NCHW BGR input and output. Weights were not retrained.
+Inference uses the authors' single-pass full-image approach.
+
+Comic ink: Informative Drawings, Caroline Chan et al.
+https://github.com/carolineec/informative-drawings
+The grayscale frame emitted by manga-lines.onnx is displayed as line art.
+See drawing-LICENSE.txt.
+
+Microsoft ONNX Runtime Web 1.18.0, WebAssembly single-thread runtime.
+https://github.com/microsoft/onnxruntime/tree/v1.18.0
+See runtime-LICENSE.txt and runtime-ThirdPartyNotices.txt.
+
+Preset thumbnails were produced from CoupleCAM's bundled sample using these
+same drawing pipelines. All user photos are processed on the device.

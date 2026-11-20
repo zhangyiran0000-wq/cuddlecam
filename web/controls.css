@@ -1,0 +1,169 @@
+/* Each group has a fixed, small set of controls. Pages replace one another;
+   no settings drawer, library, or result panel needs a scrolling gesture. */
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{--tap:44px;--visible-height:100dvh}
+main{height:calc(var(--visible-height) - 48px);min-height:0}
+aside{overflow:visible;min-height:0;padding:12px}
+body:not([data-finder]):not([data-phase=result]) .top{display:none}
+body:not([data-finder]):not([data-phase=result]) main{height:var(--visible-height)}
+#recommendHead{min-height:44px;margin:0;gap:5px}
+#rankStatus{font-size:10px;line-height:14px;padding:2px 0}
+.library-open #search{height:36px;margin:0 0 3px;padding:4px 9px}
+#poseOptions .sheet-head #start{margin-left:auto;min-height:44px;padding:5px 10px;font-size:12px;white-space:nowrap}
+button,.button,.switch,.compact-option{touch-action:manipulation}
+.chip,.type-grid button,.parameter-tabs button{min-height:44px;border:1px solid #ffffff24;background:#ffffff12;color:inherit;border-radius:13px;padding:6px 10px;font:inherit;font-size:13px}
+.parameter-tabs{display:flex;gap:5px;margin:4px 0}
+.parameter-tabs button{flex:1;min-width:0}
+.parameter-tabs button[aria-pressed=true],.type-grid button[aria-pressed=true]{background:#f1f1e8;color:#252b26}
+.type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:8px}
+.template-select:after{display:none}
+.compact-option{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-size:13px}
+.compact-option input{width:22px;height:22px;accent-color:var(--gold)}
+.tab-strip{gap:2px;margin:4px 0;padding:2px}
+.tab-strip button{min-width:0;min-height:44px;font-size:12px;padding:4px 2px}
+.sheet-head,.beauty-heading,.sound-heading{min-height:44px}
+.glass-close,#closeSound,.tray-close{min-width:44px;width:44px;min-height:44px;height:44px;flex:none}
+.beauty-heading .link{min-height:44px;min-width:44px}
+.setting-page .adjust{padding-top:0;border:0}
+.setting-page .adjust button,.pose-footer .link,#flip,#sceneAsk,#sceneApply{min-height:44px}
+.setting-page .refrow p{line-height:1.4;font-size:12px}
+.setting-page .why{margin:4px 0;font-size:11px;line-height:1.35}
+.setting-page .float-setting{min-height:44px;padding:3px 0;margin:2px 0}
+.setting-page .float-setting small{font-size:10px}
+.setting-page .guide-style{margin:5px 0}
+.segments span{min-height:44px}
+.ink-setting{min-height:44px;margin:4px 0}
+.setting-switches{flex-wrap:wrap;gap:0 8px!important}
+.setting-switches .switch{min-height:44px}
+.setting-switches #sheetVoice{min-height:44px}
+.scene-coach{border:0;margin:0;padding:0}
+.scene-coach>div{min-height:44px}
+.scene-coach label{min-height:44px}
+#sceneNote{font-size:11px;line-height:1.4;margin:3px 0}
+#sceneApply{margin:0}
+#mediaOptions .actions{margin:4px 0;gap:6px}
+#mediaOptions .button,#mediaOptions #sample{min-height:44px}
+#finderTools{display:none}
+body[data-finder] #finderTools{position:absolute;z-index:3;display:flex;flex-direction:column;gap:6px;right:77px;top:50%;transform:translateY(-50%);pointer-events:auto}
+body[data-finder] #finderTools :is(#settings,#finderSound,#guideBeauty,#switchHand){position:static;inset:auto;margin:0;display:grid;width:44px;min-width:44px;height:44px;min-height:44px;border-radius:50%;font-size:0;padding:0;align-items:center;justify-items:center}
+#finderTools #guideBeauty svg{width:20px;height:20px}
+#finderTools #switchHand span{display:none}
+body[data-finder][data-known-lens] #finderTools #switchHand{display:none}
+body[data-finder][data-shutter=left] #finderTools{left:77px;right:auto}
+body[data-finder]:is([data-shutter=top],[data-shutter=bottom]) #finderTools{flex-direction:row;left:50%;right:auto;top:auto;bottom:79px;transform:translateX(-50%)}
+body[data-finder][data-shutter=top] #finderTools{top:79px;bottom:auto}
+body[data-finder] main{height:var(--visible-height)}
+body[data-finder] #select,body[data-phase=live] #poseOptions{z-index:6;overflow:visible;max-height:none;width:min(350px,calc(100vw - 94px));padding:7px 12px;top:auto;bottom:8px;right:78px;left:auto;transform:none}
+body[data-finder][data-shutter=left] :is(#select,#poseOptions){left:78px;right:auto}
+body[data-finder] #recommendHead{min-height:44px;margin:0;gap:5px}
+#recommendHead h2{font-size:14px}#templateFilters{font-size:12px;padding:3px 7px}
+#chooseSourceMini{min-width:44px;min-height:44px;display:grid;place-items:center}
+#select:has(#cards .card)>:is(h1,#chooseSource){display:none}
+body[data-finder] #chooseSource{display:none}
+#sourcePanel .source{display:grid;gap:9px;margin:8px 0}
+#sourcePanel :is(.button,#openCam,#editLocal){width:100%;min-height:44px}
+#sourcePanel #editLocal{display:block}
+body[data-finder] #recommendHead h2{font-size:14px}
+#nextBatch{min-height:44px;min-width:44px}#nextBatch span{display:none}
+#recommendHead .tray-close{margin-left:auto}
+.tray-actions{min-height:44px;gap:6px!important;margin:3px 0!important}
+.tray-actions .link,.intimate-pref{min-height:44px;display:flex;align-items:center}
+body #allCards{overflow:visible;max-height:none}
+#libraryPager{min-height:44px;margin:0}#libraryPager button{min-width:52px;min-height:44px}
+.library-tools{min-height:44px}.library-tools .link{min-height:44px}
+body[data-finder] #cards .scene-card img{max-height:clamp(40px,19dvh,100px)}
+body[data-finder] #allCards .card img{height:clamp(36px,15dvh,76px)}
+#noMatches{font-size:12px;padding:6px 0}
+body[data-finder] #rankStatus{font-size:10px;line-height:14px;padding:2px 0}
+body[data-finder] .tray-close{min-width:44px;width:44px;height:44px;margin-right:0}
+#catalog:not([hidden]){display:grid;grid-template-columns:auto 1fr;column-gap:6px}
+#catalog :is(#search,#allCards,#noMatches){grid-column:1/-1}
+#libraryPager{grid-column:1;justify-content:flex-start;gap:3px}
+#libraryPager button{min-width:44px}
+#libraryPager output{min-width:40px}
+.library-tools{grid-column:2;gap:5px;justify-content:flex-end}
+.library-tools .link{max-width:72px;font-size:11px;line-height:1.3}
+dialog:is(#soundPanel,#beautyPanel,#lensPanel,#typePanel,#sourcePanel){position:fixed;inset:auto 10px 10px auto;margin:0;transform:none;width:min(320px,calc(100vw - 20px));max-height:none;overflow:visible;padding:9px 13px;border-radius:23px;border:1px solid var(--sheet-border);background:var(--sheet-bg);color:var(--light-ink);backdrop-filter:blur(28px) saturate(140%);box-shadow:0 12px 36px #0a100e44}
+body[data-shutter=left] dialog:is(#soundPanel,#beautyPanel,#lensPanel,#typePanel,#sourcePanel){left:10px;right:auto}
+body[data-shutter=top] dialog:is(#soundPanel,#beautyPanel,#lensPanel,#typePanel,#sourcePanel){top:10px;bottom:auto}
+dialog::backdrop{background:#09131052}
+body[data-shutter=left] :is(.sheet-head,.sound-heading){flex-direction:row-reverse}
+#beautyPresets{margin:3px 0}#beautyPresets button{min-height:44px}
+.beauty-levels{display:block}.beauty-levels label{display:grid;grid-template-columns:32px minmax(50px,1fr) 38px;align-items:center;gap:8px;min-height:44px}
+.beauty-levels input{min-height:44px}
+#beautyNote{font-size:11px;line-height:1.35;min-height:15px;margin:3px 0}
+.sound-option{min-height:44px;padding:3px 0}.sound-option small{display:none}
+#soundRoute{margin:5px 0;font-size:11px;line-height:1.35}
+#muteAll{min-height:44px}
+.lens-grid button{min-height:44px}
+body[data-beauty-edit] .stage{inset:0!important}
+body[data-beauty-edit] #view{width:min(100%,177.7778dvh)}
+/* Result editor: three pages, one portrait parameter at a time. */
+body[data-phase=result] .top{display:none}
+body[data-phase=result] main{height:var(--visible-height);min-height:0}
+body[data-phase=result] aside{padding:8px 12px;overflow:visible}
+#result{height:100%;display:flex;flex-direction:column;gap:4px;min-height:0}
+.result-pages{flex:1;min-height:0;overflow:visible;display:flex;flex-direction:column;gap:3px}
+#result .result-heading{display:none}
+#resultType{font-size:11px;min-height:14px}
+[data-result-page]{min-height:0}
+#result #portraitTools{border:0;padding:0;margin:0}
+#result .export-bar{position:static;flex:none;padding:4px 0 0;background:transparent}
+#result .export-bar button{min-height:44px}
+#resultTabs{margin:0}
+#lookRail{margin:3px 0 5px;gap:5px}
+.look{white-space:normal;min-height:44px;font-size:11px;gap:3px}
+.look-tile{width:100%;max-height:68px;object-fit:contain}
+.strength-row{min-height:44px;margin:0}
+#styleNote,#faceNote{font-size:11px;line-height:1.35;margin:3px 0}
+.edit-bar{margin:0;min-height:44px}.edit-bar button{min-height:44px}
+.edit-sliders label{min-height:44px}.edit-sliders input{min-height:44px}
+[data-result-page=next] .actions{display:grid;gap:9px;margin:10px 0}
+[data-result-page=next] button{min-height:44px}
+@media(orientation:portrait){
+  main{display:grid;grid-template-columns:1fr;grid-template-rows:minmax(60px,1fr) auto;height:calc(var(--visible-height) - 42px);min-height:0}
+  .stage{min-height:0;padding:5px 8px}#view{max-height:100%;width:min(100%,30dvh)!important}
+  aside{padding:6px 12px 10px}
+  body[data-finder] #view{width:min(100%,75dvh)!important}
+  body[data-finder] #select,body[data-phase=live] #poseOptions{inset:auto 10px 130px;transform:none;width:calc(100vw - 20px);padding:7px 12px}
+  body[data-finder][data-shutter=left] :is(#select,#poseOptions){left:10px;right:10px}
+  body[data-finder][data-shutter=top] :is(#select,#poseOptions){top:130px;bottom:auto}
+  body[data-finder]:is([data-shutter=left],[data-shutter=right]) :is(#select,#poseOptions){width:calc(100vw - 94px);left:auto;right:78px;bottom:8px}
+  body[data-finder][data-shutter=left] :is(#select,#poseOptions){left:78px;right:auto}
+  body[data-phase=result] main{grid-template-rows:minmax(40px,1fr) 290px}
+  body[data-phase=result] #view{width:auto!important;max-width:100%;height:100%;aspect-ratio:3/4}
+  body[data-phase=result] aside{height:290px}
+  body[data-beauty-edit] #view{width:min(100%,75dvh)!important}
+}
+@media(orientation:landscape){
+  body:not([data-finder]):not([data-phase=result]) main{height:var(--visible-height);grid-template-columns:minmax(0,1fr) min(360px,51vw)}
+  body[data-phase=result] main{grid-template-columns:minmax(0,1fr) min(340px,49vw)}
+  body[data-phase=result] #view{max-height:100%;width:auto!important;max-width:100%}
+}
+@media(max-height:380px){
+  body{--tap:44px}
+  body[data-finder] :is(#select,#poseOptions){padding:4px 10px}
+  .setting-page .why{display:none}.setting-page .refrow img{width:40px;max-height:40px}
+  .setting-page #poseTitle{font-size:16px;margin:2px 0}
+  .setting-page .refrow p{font-size:11px;line-height:1.3}
+  .setting-page .refrow .kicker{display:none}
+  .setting-page .pose-footer{margin:0}
+  .tab-strip{margin:2px 0;padding:1px}
+  #allCards .card img,body[data-finder] #allCards .card img{height:32px}
+  body[data-finder] #cards .scene-card img{max-height:52px}
+  .library-tools{min-height:40px}.library-tools .link{min-height:40px}
+  body[data-finder] .library-open #search{height:36px;margin:0 0 3px}
+  dialog:is(#soundPanel,#beautyPanel,#lensPanel,#typePanel,#sourcePanel){padding:5px 11px;bottom:6px}
+  #lookRail{margin:1px 0}.look-tile{max-height:40px}
+  #result{gap:2px}.result-pages{gap:1px}
+  body[data-phase=result] aside{padding:5px 10px}
+  .parameter-tabs{margin:1px 0}
+  #result .export-bar{padding-top:2px}
+}
+/* Bilingual name remains compact in the smallest supported header. */
+.brand-words{display:flex;flex-direction:column;gap:2px;white-space:nowrap}
+.brand-words strong{font:600 14px/1.1 var(--serif)}
+.brand-words small{font:10px/1.1 sans-serif;letter-spacing:.02em}
+.finder-brand{gap:5px;white-space:nowrap;letter-spacing:0}
+.finder-brand em{font-size:23px}
+@media(max-width:360px){.top{gap:8px;padding-inline:10px}.top .mark{display:none}}
