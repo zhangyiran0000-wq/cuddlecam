@@ -2,6 +2,14 @@
 
 Android 双人 / 情侣拍照指导相机，原名 CoupleCAM。参考姿势、双人参考线、语音引导与模型随应用离线提供。
 
+## 2.3.2-beta.1 拍摄与语音修复
+
+- 修复导入视频尚未准备好时切后台、关闭预览或重新打开相机，旧播放回调可能关闭新取景、重新唤起空白取景的问题。过期任务不再改动当前画面或新任务的按钮状态。
+- 修复系统语音稍晚就绪时与内置语音重叠播放；切换到系统或浏览器语音前停止旧录音。
+- 版本明确标为 Beta，沿用原包名与签名，可覆盖同签名旧版。GitHub Release 保持预发布标记，历史安装包保留。
+
+新增回归测试在修复前复现了旧视频回调破坏新取景、语音重叠；修复后验证迟到的成功/失败回调、重新开拍、三秒倒计时及保存。生命周期测试模拟相机和延迟的视频启动，语音测试模拟播放接口；均不代表实体 Android 手机验证。
+
 ## 2.3.1 正式名称
 
 名称确定为「贴贴相机 · CuddleCam」。应用标签、界面、项目名称、安装包及新照片名称统一更新；新照片保存到 `Pictures/CuddleCam`。保留原 Android 包名和签名，可覆盖旧版，原有照片保留。此版本沿用 2.3 的拍摄与检测逻辑。
@@ -24,7 +32,7 @@ git lfs pull
 .\gradlew.bat assembleDebug
 ```
 
-APK 位于 `app/build/outputs/apk/debug/`。仓库不包含开发签名、旧盘对话、恢复备份及本机构建工具；新电脑使用 Gradle 默认调试签名，无法直接覆盖不同签名的旧安装。本机恢复的密钥仍保存在 `.local-signing/`，离线构建可运行 `./build-local.ps1`，输出 `outputs/CuddleCam-2.3.1.apk`。
+APK 位于 `app/build/outputs/apk/debug/`。仓库不包含开发签名、旧盘对话、恢复备份及本机构建工具；新电脑使用 Gradle 默认调试签名，无法直接覆盖不同签名的旧安装。本机恢复的密钥仍保存在 `.local-signing/`，离线构建可运行 `./build-local.ps1`，输出 `outputs/CuddleCam-2.3.2-beta.1.apk`。
 
 验证逻辑和界面：
 
@@ -34,6 +42,7 @@ npx playwright install chromium
 npm test
 npm run test:ui
 npm run test:features
+npm run test:lifecycle
 npm run test:detector
 npm run test:live-detector
 ```

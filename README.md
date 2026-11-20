@@ -2,11 +2,9 @@
 
 **你们负责贴贴，姿势我来教。**
 
-**[⬇ 下载 Android APK · v2.3.1](https://github.com/zhangyiran0000-wq/cuddlecam/releases/download/v2.3.1/CuddleCam-2.3.1.apk)**　[版本说明与校验文件](https://github.com/zhangyiran0000-wq/cuddlecam/releases/tag/v2.3.1)
+**[⬇ 下载 Android APK · v2.3.2-beta.1](https://github.com/zhangyiran0000-wq/cuddlecam/releases/download/v2.3.2-beta.1/CuddleCam-2.3.2-beta.1.apk)**　[版本说明与校验文件](https://github.com/zhangyiran0000-wq/cuddlecam/releases/tag/v2.3.2-beta.1)
 
-Android 10+ · 约 242 MB（含离线模型）· 开发测试版。下载 `.apk` → 安装 → 允许相机权限。
-
-仓库目前为私有，需要登录有访问权限的 GitHub 账号。
+Android 10+ · 约 242 MB（含离线模型）· **Beta 测试版**。下载 `.apk` → 安装 → 允许相机权限。
 
 <p align="center">
   <img src="web/assets/cheeks.jpg" width="230" alt="贴脸看镜头参考照">

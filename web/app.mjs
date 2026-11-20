@@ -36,7 +36,7 @@ const show=(id,visible)=>{$(id).hidden=!visible;};
 const image=async src=>{const i=new Image();i.src=src;await i.decode();return i;};
 const nextFrame=()=>new Promise(r=>requestAnimationFrame(r));
 let library=[],ranked=[],choice=null,bg=null,refFeatures=null,phase='select',source='',stream=null,mirror=false;
-let face=null,hand=null,motion=new Coach(),tick=0,epoch=0,rankEpoch=0;
+let face=null,hand=null,motion=new Coach(),tick=0,epoch=0,rankEpoch=0,liveAttempt=0;
 let latestPhoto=null,importedPhoto=false,timerEnd=0,autoEnabled=true,liveReady=false,activeUrl=null,frameTime=-1,lastDetect=0,busy=false;
 let refMode='',previewTick=0,opening=false,resumeCamera=false,fitMode='waiting',fitTime=0,fitFrame=-1,rankAspect=0;
 const touches=new Map();
@@ -457,16 +457,22 @@ function checkSolo(faces,now,light=null){
   }
 }
 async function startLive(kind,file){
+  if(!choice||busy)return;
   const selected=choice;liveReady=false;$('start').disabled=true;
+  const attempt=++liveAttempt;let my=null;
+  const current=()=>attempt===liveAttempt&&choice===selected&&(my===null||my===epoch)&&['chosen','live'].includes(phase);
   let loadingFrame=0;
   for(const id of ['posePicker','timer','settings','guideBeauty'])$(id).disabled=true;
   status('正在准备双人检测…');$('hint').textContent=brief(choice.pose);
   try{
     if(kind==='camera'){if(!await attachCamera())return;}
     else if(file){
-      stopMedia();mirror=false;source='movie';activeUrl=URL.createObjectURL(file);video.src=activeUrl;await video.play();
+      stopMedia();my=epoch;mirror=false;source='movie';activeUrl=URL.createObjectURL(file);video.src=activeUrl;await video.play();
     }
-    const my=epoch;
+    // File playback can settle after pause or a new camera session has started.
+    // Its completion and cleanup belong only to the session that opened it.
+    if(!current())return;
+    my=epoch;
     if(phase==='live'){
       const previewWhileLoading=()=>{
         if(my!==epoch||choice!==selected||liveReady||phase!=='live')return;
@@ -474,7 +480,7 @@ async function startLive(kind,file){
       };
       previewWhileLoading();
     }
-    try{await prepare();}catch{face=hand=null;}if(my!==epoch||choice!==selected||!['chosen','live'].includes(phase))return;
+    try{await prepare();}catch{face=hand=null;}if(!current())return;
     const openingLine=brief(choice.pose);
     let calibrating=!!face&&!!invitations[choice.pose.family]&&fitMode==='waiting';
     const startLine=openingLine;
@@ -536,10 +542,10 @@ async function startLive(kind,file){
       tick=requestAnimationFrame(step);
     }
     tick=requestAnimationFrame(step);
-  }catch(e){stopMedia();panels('chosen');drawBackground();guide();throw e;}
+  }catch(e){if(!current())return;stopMedia();panels('chosen');drawBackground();guide();throw e;}
   finally{
     cancelAnimationFrame(loadingFrame);
-    for(const id of ['start','posePicker','shutter','timer','settings','guideBeauty'])$(id).disabled=false;
+    if(attempt===liveAttempt)for(const id of ['start','posePicker','shutter','timer','settings','guideBeauty'])$(id).disabled=false;
   }
 }
 async function take(isSample,external=null){

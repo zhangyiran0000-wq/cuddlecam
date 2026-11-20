@@ -1,12 +1,13 @@
 {
   "name": "cuddlecam",
-  "version": "2.3.1",
+  "version": "2.3.2-beta.1",
   "private": true,
   "description": "贴贴相机 · CuddleCam",
   "scripts": {
-    "test": "node tests/behavior.mjs && node tests/detection-behavior.mjs",
+    "test": "node tests/behavior.mjs && node tests/detection-behavior.mjs && node tests/sound-behavior.mjs",
     "test:ui": "node tests/ui.cjs",
     "test:features": "node tests/features.cjs",
+    "test:lifecycle": "node tests/lifecycle.cjs",
     "test:detector": "node tests/detection.cjs",
     "test:live-detector": "node tests/detection.cjs live tests/live-detector-probe.mjs"
   },

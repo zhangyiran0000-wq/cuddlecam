@@ -6,8 +6,8 @@ android {
         applicationId 'app.couplecam.camera'
         minSdk 29
         targetSdk 35
-        versionCode 25
-        versionName '2.3.1'
+        versionCode 26
+        versionName '2.3.2-beta.1'
     }
     sourceSets.main.assets.srcDirs = [rootProject.file('web')]
     packaging { jniLibs { useLegacyPackaging true } }

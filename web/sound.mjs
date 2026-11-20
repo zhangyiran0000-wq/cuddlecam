@@ -19,15 +19,18 @@ function render(){
 }
 function stopSpeech(){
   window.Phone?.quiet?.();window.speechSynthesis?.cancel();
+  stopRecording();
+}
+function stopRecording(){
   const clip=speechClip;speechClip=null;clip?.pause();
 }
 export function silence(){stopSpeech();clickClip?.pause();}
 export function voice(text,key,force=false){
   if(!guide.checked||panel.open)return;
-  if(window.Phone?.speak?.(text))return;
+  if(window.Phone?.speak?.(text)){stopRecording();window.speechSynthesis?.cancel();return;}
   if(!window.Phone&&window.speechSynthesis){
     const v=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase().startsWith('zh'));
-    if(v){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.voice=v;speechSynthesis.speak(u);return;}
+    if(v){stopRecording();speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.voice=v;speechSynthesis.speak(u);return;}
   }
   if(speechClip&&!force&&!speechClip.paused&&!speechClip.ended)return;
   speechClip?.pause();
