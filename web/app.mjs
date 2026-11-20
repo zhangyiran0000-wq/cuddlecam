@@ -697,7 +697,7 @@ event('save',()=>{
   const jpeg=editor.render(false).toDataURL('image/jpeg',.94);
   let ok=true;
   if(window.Phone)ok=Phone.saveJpeg(jpeg.split(',')[1]);
-  else{const a=document.createElement('a');a.href=jpeg;a.download='CuddlePose.jpg';a.click();}
+  else{const a=document.createElement('a');a.href=jpeg;a.download='CuddleCam.jpg';a.click();}
   if(ok){$('save').disabled=true;$('save').textContent='照片已保存';status(editor.changed()?'已保存调整后的照片。':'已保存原图。');}
   else status('保存失败，请检查设备剩余空间后重试。');
 });

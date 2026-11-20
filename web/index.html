@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#1a1b19"><title>贴贴姿势相机 · CuddlePose Camera</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="finder.css"><link rel="stylesheet" href="controls.css"></head>
+<meta name="theme-color" content="#1a1b19"><title>贴贴相机 · CuddleCam</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="finder.css"><link rel="stylesheet" href="controls.css"></head>
 <body>
 <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
 <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13" r="4"/></symbol>
@@ -17,11 +17,11 @@
 <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
 <symbol id="i-beauty" viewBox="0 0 24 24"><path d="M9 4c.6 4 2.6 6 6 6.5-3.4.6-5.4 2.6-6 6.5-.6-3.9-2.6-5.9-6-6.5C6.4 10 8.4 8 9 4Zm9 9c.4 2.3 1.5 3.5 3.5 4-2 .5-3.1 1.7-3.5 4-.4-2.3-1.5-3.5-3.5-4 2-.5 3.1-1.7 3.5-4Z"/></symbol>
 </defs></svg>
-<header class="top"><div class="brand" aria-label="贴贴姿势相机 · CuddlePose Camera"><span class="mark" aria-hidden="true"><i></i><i></i></span><span class="brand-words"><strong>贴贴姿势相机</strong><small>CuddlePose Camera</small></span></div><span class="toprule"></span><span id="step">实景选姿</span>
+<header class="top"><div class="brand" aria-label="贴贴相机 · CuddleCam"><span class="mark" aria-hidden="true"><i></i><i></i></span><span class="brand-words"><strong>贴贴相机</strong><small>CuddleCam</small></span></div><span class="toprule"></span><span id="step">实景选姿</span>
 <button id="voice" class="voice" aria-haspopup="dialog" aria-controls="soundPanel"><svg><use href="#i-sound"/></svg><span>声音</span></button></header>
 <main><canvas id="ambient" width="24" height="18" aria-hidden="true"></canvas>
 <section class="stage"><div id="view"><canvas id="photo" width="960" height="540" aria-label="相机取景"></canvas><canvas id="beautyLayer" aria-hidden="true" hidden></canvas><div id="guidePlane" aria-hidden="true"><img id="outline" alt="" hidden></div>
-<div class="viewmeta"><span class="finder-brand" aria-label="贴贴姿势相机 · CuddlePose Camera">贴贴 <em>CuddlePose</em></span><span id="tag">正在打开相机</span><span id="livePose"></span><span id="ratio">16:9</span></div>
+<div class="viewmeta"><span class="finder-brand" aria-label="贴贴相机 · CuddleCam">贴贴 <em>CuddleCam</em></span><span id="tag">正在打开相机</span><span id="livePose"></span><span id="ratio">16:9</span></div>
 <div id="roles" aria-hidden="true" hidden><span></span><span></span></div><div id="sceneToast" hidden></div></div><div id="hint" hidden></div><div id="status" role="status"></div></section>
 <aside><nav id="finderTools" aria-label="相机快捷选项"><button id="settings" class="glass-tool" hidden aria-label="拍摄设置" aria-expanded="false" aria-controls="poseOptions"><svg><use href="#i-settings"/></svg></button>
 <button id="finderSound" class="glass-tool" hidden aria-label="声音设置" title="声音设置" aria-haspopup="dialog" aria-controls="soundPanel"><svg><use href="#i-sound"/></svg></button>

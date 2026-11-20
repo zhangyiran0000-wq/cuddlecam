@@ -68,7 +68,7 @@ try {
 } finally { $zip.Dispose() }
 & "$bt/zipalign.exe" -f 4 "$build/unsigned.apk" "$build/aligned.apk"
 Check-Tool
-$apk = Join-Path $output "CuddlePose-$version.apk"
+$apk = Join-Path $output "CuddleCam-$version.apk"
 & "$jdk/java.exe" -jar "$bt/lib/apksigner.jar" sign --ks $key --ks-key-alias couplecam --ks-pass pass:android --key-pass pass:android --v4-signing-enabled false --out "$build/signed.apk" "$build/aligned.apk"
 Check-Tool
 & "$jdk/java.exe" -jar "$bt/lib/apksigner.jar" verify --verbose --print-certs "$build/signed.apk"

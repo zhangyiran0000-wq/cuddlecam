@@ -221,9 +221,9 @@ public final class CameraActivity extends Activity {
                     }catch(IOException|SecurityException unavailable){lastSaved=null;}
                 }
                 ContentValues v=new ContentValues();
-                v.put(MediaStore.Images.Media.DISPLAY_NAME,"CuddlePose-"+System.currentTimeMillis()+".jpg");
+                v.put(MediaStore.Images.Media.DISPLAY_NAME,"CuddleCam-"+System.currentTimeMillis()+".jpg");
                 v.put(MediaStore.Images.Media.MIME_TYPE,"image/jpeg");
-                v.put(MediaStore.Images.Media.RELATIVE_PATH,"Pictures/CuddlePose");v.put(MediaStore.Images.Media.IS_PENDING,1);
+                v.put(MediaStore.Images.Media.RELATIVE_PATH,"Pictures/CuddleCam");v.put(MediaStore.Images.Media.IS_PENDING,1);
                 uri=getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,v);
                 if(uri==null)return null;
                 try(OutputStream out=getContentResolver().openOutputStream(uri)){if(out==null)throw new IOException();out.write(bytes);}
